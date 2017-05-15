@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   
+   <head>
+      <title>HealthPath</title>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+      
+      <!-- Bootstrap -->
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+	  <link href="resources/css/index.css" rel="stylesheet">
+      
+   </head>
+   
+   <body ng-app="app">
+    <nav class = "navbar navbar-default app-navigation" role = "navigation">
+      <div>
+         <ul class="nav navbar-nav" ng-controller="NavbarController as ctrl">
+            <li class="active" id="summary" ng-click="ctrl.changeTab('summary')"><a href = "#/summary">Summary</a></li>
+            <li id="foodbase" ng-click="ctrl.changeTab('foodbase')" ><a href = "#/foodbase">Foodbase</a></li>
+            <li id="addFood" ng-click="ctrl.changeTab('addFood')" ><a href = "#/addFood">Add Food</a></li>
+         </ul>
+      </div>
+    </nav>   
+    <div ng-view class="tab-container"></div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src = "https://code.jquery.com/jquery.js"></script>
+    
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
+    <script src="resources/js/app.js"></script>
+      
+   </body>
+</html>

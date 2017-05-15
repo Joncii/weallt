@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   
+   <head>
+      <title>Weallt</title>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+
+	  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+	  <link href="assets/weallt.min.css" rel="stylesheet">
+      
+   </head>
+   
+   <body data-ng-app="weallt">
+    <nav class = "navbar navbar-default app-navigation" role = "navigation">
+      <div>
+         <ul class="nav navbar-nav" data-ng-controller="NavbarController as ctrl">
+            <li class="active" id="summary" data-ng-click="ctrl.changeTab('summary')"><a href = "#/summary">Summary</a></li>
+            <li id="foodbase" data-ng-click="ctrl.changeTab('foodbase')" ><a href = "#/foodbase">Foodbase</a></li>
+            <li id="addFood" data-ng-click="ctrl.changeTab('addFood')" ><a href = "#/addFood">Add Food</a></li>
+         </ul>
+      </div>
+    </nav>   
+    <div data-ng-view class="tab-container"></div>
+
+    <script src="assets/weallt.min.js"></script>
+      
+   </body>
+</html>
