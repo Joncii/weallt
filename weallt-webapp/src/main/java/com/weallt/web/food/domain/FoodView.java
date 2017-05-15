@@ -12,6 +12,8 @@ public class FoodView {
 
     private FatPortionView fat;
 
+    private EnergyPortionView energy;
+
     public String getName() {
         return name;
     }
@@ -50,6 +52,14 @@ public class FoodView {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public EnergyPortionView getEnergy() {
+        return energy;
+    }
+
+    public void setEnergy(EnergyPortionView energy) {
+        this.energy = energy;
     }
 
 }

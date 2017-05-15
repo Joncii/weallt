@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.weallt.dal.food.domain.EnergyMetric;
 import com.weallt.dal.food.domain.WeightMetric;
 import com.weallt.web.food.domain.AddFoodRequest;
 import com.weallt.web.food.domain.FoodView;
@@ -25,9 +26,14 @@ public class FoodController {
     @Autowired
     private FoodViewFacade foodViewFacade;
     
-    @RequestMapping(value = "/food/metrics", method = RequestMethod.GET)
-    public List<String> getMetrics(){
+    @RequestMapping(value = "/food/weightMetrics", method = RequestMethod.GET)
+    public List<String> getWeightMetrics(){
         return Stream.of(WeightMetric.values()).map(m -> m.toString()).collect(Collectors.toList());
+    }
+    
+    @RequestMapping(value = "/food/energyMetrics", method = RequestMethod.GET)
+    public List<String> getEnergyMetrics(){
+        return Stream.of(EnergyMetric.values()).map(m -> m.toString()).collect(Collectors.toList());
     }
     
     @ResponseStatus(code = HttpStatus.CREATED)

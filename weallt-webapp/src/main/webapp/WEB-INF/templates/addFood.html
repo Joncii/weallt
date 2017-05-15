@@ -10,6 +10,19 @@
 
     </div>
     <div class="form-group">
+      <label class="col-sm-5 control-label" for="energy">Energy</label>
+      <div class="col-sm-4">
+        <input type="number" step="0.1" min="0" class="form-control"
+          id="energy" data-ng-model="ctrl.food.energy.value">
+      </div>
+      <div class="col-sm-3 selectContainer">
+        <select class="form-control" name="metric"
+          data-ng-model="ctrl.food.energy.metric">
+          <option data-ng-repeat="metric in ctrl.energyMetrics">{{metric}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
       <label class="col-sm-5 control-label" for="carbohydrates">Carbohydrates</label>
       <div class="col-sm-4">
         <input type="number" step="0.1" min="0" class="form-control"
@@ -18,7 +31,7 @@
       <div class="col-sm-3 selectContainer">
         <select class="form-control" name="metric"
           data-ng-model="ctrl.food.carbohydrate.weightPortion.metric">
-          <option data-ng-repeat="metric in ctrl.metrics">{{metric}}</option>
+          <option data-ng-repeat="metric in ctrl.weightMetrics">{{metric}}</option>
         </select>
       </div>
     </div>
@@ -31,7 +44,7 @@
       <div class="col-sm-3 selectContainer">
         <select class="form-control" name="metric"
           data-ng-model="ctrl.food.protein.weightPortion.metric">
-          <option data-ng-repeat="metric in ctrl.metrics">{{metric}}</option>
+          <option data-ng-repeat="metric in ctrl.weightMetrics">{{metric}}</option>
         </select>
       </div>
     </div>
@@ -44,7 +57,7 @@
       <div class="col-sm-3 selectContainer">
         <select class="form-control" name="metric"
           data-ng-model="ctrl.food.fat.weightPortion.metric">
-          <option data-ng-repeat="metric in ctrl.metrics">{{metric}}</option>
+          <option data-ng-repeat="metric in ctrl.weightMetrics">{{metric}}</option>
         </select>
       </div>
     </div>

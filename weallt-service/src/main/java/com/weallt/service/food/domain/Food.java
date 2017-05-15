@@ -1,5 +1,6 @@
 package com.weallt.service.food.domain;
 
+import com.weallt.service.food.domain.nutrient.EnergyPortion;
 import com.weallt.service.food.domain.portion.CarbohydratePortion;
 import com.weallt.service.food.domain.portion.FatPortion;
 import com.weallt.service.food.domain.portion.ProteinPortion;
@@ -17,6 +18,16 @@ public class Food {
     private FatPortion fatPortion;
 
     private WeightPortion portion;
+    
+    private EnergyPortion energyPortion;
+
+    public EnergyPortion getEnergyPortion() {
+        return energyPortion;
+    }
+
+    public void setEnergyPortion(EnergyPortion energyPortion) {
+        this.energyPortion = energyPortion;
+    }
 
     public String getId() {
         return id;

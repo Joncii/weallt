@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import com.weallt.dal.food.domain.FoodEntity;
 import com.weallt.service.food.domain.Food;
 
-
 @Component
 public class FoodTransformer {
 
@@ -26,6 +25,9 @@ public class FoodTransformer {
     @Autowired
     private WeightPortionTransformer portionTransformer;
 
+    @Autowired
+    private EnergyPortionTransformer energyPortionTransformer;
+
     public FoodEntity transform(Food food) {
         FoodEntity entity = new FoodEntity();
         entity.setId(food.getId());
@@ -34,6 +36,7 @@ public class FoodTransformer {
         entity.setCarbohydratePortion(carbohydratePortionTransformer.transform(food.getCarbohydratePortion()));
         entity.setProteinPortion(proteinPortionTransformer.transform(food.getProteinPortion()));
         entity.setFatPortion(fatPortionTransformer.transform(food.getFatPortion()));
+        entity.setEnergy(energyPortionTransformer.transform(food.getEnergyPortion()));
         return entity;
     }
 
@@ -45,6 +48,7 @@ public class FoodTransformer {
         food.setCarbohydratePortion(carbohydratePortionTransformer.transform(entity.getCarbohydratePortion()));
         food.setProteinPortion(proteinPortionTransformer.transform(entity.getProteinPortion()));
         food.setFatPortion(fatPortionTransformer.transform(entity.getFatPortion()));
+        food.setEnergyPortion(energyPortionTransformer.transform(entity.getEnergy()));
         return food;
     }
 
