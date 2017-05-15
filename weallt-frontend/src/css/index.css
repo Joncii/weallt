@@ -14,15 +14,6 @@ html, body {
     background-color: #ffc7c7;
 }
 
-.login-panel {
-    width: 35%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    background-color: #fff7e1;
-}
-
 .register-panel {
     width: 35%;
     display: flex;
@@ -31,18 +22,6 @@ html, body {
     align-items: center;
     height: 100%;
     background-color: #fff7e1;
-}
-
-.login-panel .form {
-    max-width: 350px;
-}
-
-.login-panel .email-input {
-    margin-bottom: 10px;
-}
-
-.login-panel .password-input {
-    margin-bottom: 10px;
 }
 
 .register-panel .email-input {
@@ -66,22 +45,6 @@ html, body {
     border-color: #ccc;
 }
 
-.login-button {
-    font-weight: 600;
-}
-
-.login-button:hover {
-    background-color: #ffeaea;
-}
-
-.register-button {
-    font-weight: 600;
-}
-
-.register-button:hover {
-    background-color: #ffeaea;
-}
-
 .upper-register-panel {
     flex-grow: 1;
     display: flex;
@@ -102,9 +65,10 @@ html, body {
 }
 
 .app-navigation {
-    background-color: #ffc7c7;
+    background-color: #2e2f33;
     margin-bottom: 0px;
     border: none;
+    border-radius: initial;
 }
 
 .app-navigation .navbar-nav>.active>a {
@@ -133,27 +97,20 @@ html, body {
     padding: 30px 25px;
 }
 
-.food-list {
-    display: flex;
-    flex-direction: column;
+.app-navigation-item a {
+    color: white;
 }
 
-.food-information-panel {
-    flex-grow: 1;
+.app-navigation-item a:hover {
+    background-color: transparent !important;
+    color: #fff7e1;
 }
 
-.add-food-form {
-    align-self: center;
+.active.app-navigation-item a {
+    color: #2e2f33;
 }
 
-.add-food-form-container {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-self: center;
-    width: 40%;
-    height: 50%;
-    background-color: #ffc7c7;
-    border-radius: 10px;
+.active.app-navigation-item a:hover {
+    background-color: #fff7e1 !important;
+    color: #2e2f33;
 }

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
    
    <head>
-      <title>Weallt</title>
+      <title>weallt</title>
       <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
 
 	  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
@@ -11,12 +11,12 @@
    </head>
    
    <body data-ng-app="weallt">
-    <nav class = "navbar navbar-default app-navigation" role = "navigation">
+    <nav class = "navbar app-navigation" role = "navigation">
       <div>
          <ul class="nav navbar-nav" data-ng-controller="NavbarController as ctrl">
-            <li class="active" id="summary" data-ng-click="ctrl.changeTab('summary')"><a href = "#/summary">Summary</a></li>
-            <li id="foodbase" data-ng-click="ctrl.changeTab('foodbase')" ><a href = "#/foodbase">Foodbase</a></li>
-            <li id="addFood" data-ng-click="ctrl.changeTab('addFood')" ><a href = "#/addFood">Add Food</a></li>
+            <li class="active app-navigation-item" id="summary" data-ng-click="ctrl.changeTab('summary')"><a href = "#/summary">Summary</a></li>
+            <li class="app-navigation-item" id="foodbase" data-ng-click="ctrl.changeTab('foodbase')" ><a href = "#/foodbase">Foodbase</a></li>
+            <li class="app-navigation-item" id="addFood" data-ng-click="ctrl.changeTab('addFood')" ><a href = "#/addFood">Add Food</a></li>
          </ul>
       </div>
     </nav>   

@@ -33,14 +33,6 @@ gulp.task('browserSync', function(){
 	})
 });
 
-gulp.task('useref', function(){
-	return gulp.src('src/html/**/*.html')
-		.pipe(useref())
-		.pipe(gulpIf('*.js', uglify()))
-		.pipe(gulpIf('*.css', cssnano()))
-		.pipe(gulp.dest('dist'))
-});
-
 gulp.task('clean:dist', function(){
 	return del.sync('dist');
 });
@@ -53,9 +45,9 @@ gulp.task("buildjs", function () {
 });
 
 gulp.task("buildcss", function(){
-	return gulp.src("src/css/**/*.css")
+	return gulp.src(["src/css/**/bootstrap.css", "src/css/**/bootstrap-theme.css", "src/css/**/*.css"])
 				.pipe(concatcss("weallt.min.css"))
-				.pipe(gulpIf('*.css', cssnano()))
+				.pipe(gulpIf("*.css", cssnano()))
 				.pipe(gulp.dest("dist"));
 });
 

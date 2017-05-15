@@ -8,12 +8,10 @@
 	  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 	  <link href="assets/weallt.min.css" rel="stylesheet">
       
-      <base href="/webapp/">
-      
    </head>
    
-   <body data-ng-app="app">
-      <div class="container" data-ng-controller="LoginController as ctrl">
+   <body data-ng-app="weallt">
+      <div class="login-container" data-ng-controller="LoginController as ctrl">
 		<div class="login-panel">
 			<form class="form" th:action="@{/perform_login}" method="POST">
 				<div class="form-group">

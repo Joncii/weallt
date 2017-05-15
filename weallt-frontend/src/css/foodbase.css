@@ -1,0 +1,75 @@
+.foodbase-container {
+    display: flex;
+    flex-grow: 1;
+}
+
+.foodbase-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.foodbase-list-searchbar{
+    border: 1px solid #2e2f33;
+}
+
+.foodbase-list .list-group {
+    margin-top: 10px;
+}
+
+.foodbase-list-item {
+    background-color: #2e2f33;
+    color: white;
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    border-left: 1px solid #2e2f33;
+    border-right: 1px solid #2e2f33;
+    width: 100%;
+    text-align: left;
+}
+
+.foodbase-list-item:first-child {
+    border-top: 1px solid #2e2f33;
+}
+
+.foodbase-list-item:last-child {
+    border-bottom: 1px solid #2e2f33;
+}
+
+.foodbase-list-item:hover {
+    background-color: #2e2f33;
+    color: #fff7e1;
+}
+
+.foodbase-list-item:focus {
+    outline: none;
+    background-color: white;
+    color: #2e2f33;
+    border-top: none;
+    border-bottom: none;
+}
+
+.foodbase-list-item:first-child:focus {
+    border-top: 1px solid #2e2f33;
+}
+
+.foodbase-list-item:last-child:focus {
+    border-bottom: 1px solid #2e2f33;
+}
+
+.foodbase-information-panel {
+    flex-grow: 1;
+    border: 1px solid #2e2f33;
+    margin-left: 25px;
+    box-shadow: none;
+}
+
+.foodbase-information-header {
+    background-image: none;
+    color: white;
+    background-color: #2e2f33;
+    border-color: transparent;
+}

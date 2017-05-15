@@ -1,13 +1,13 @@
-<div data-ng-controller="FoodBaseController as ctrl">
-    <div class="food-list">
-        <input type="text" class="form-control no-outline-border"
+<div class="foodbase-container" data-ng-controller="FoodBaseController as ctrl">
+    <div class="foodbase-list">
+        <input type="text" class="form-control no-outline-border foodbase-list-searchbar"
             placeholder="Search.."></input>
         <div class="list-group">
-            <button type="button" class="list-group-item" data-ng-repeat = "food in ctrl.foodList.foods" data-ng-click="ctrl.retrieveFood(food.id)">{{food.name}}</button>
+            <button type="button" class="foodbase-list-item" data-ng-repeat = "food in ctrl.foodList.foods" data-ng-click="ctrl.retrieveFood(food.id)">{{food.name}}</button>
         </div>
     </div>
-    <div class="panel panel-default food-information-panel" data-ng-hide=!ctrl.shownFood>
-        <div class="panel-heading">
+    <div class="panel foodbase-information-panel" data-ng-hide=!ctrl.shownFood>
+        <div class="panel-heading foodbase-information-header">
             <h3 class="panel-title">{{ctrl.shownFood.name}}</h3>
         </div>
         <div class="panel-body">
