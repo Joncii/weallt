@@ -1,0 +1,32 @@
+.no-outline-border:focus {
+    border-color: #ccc;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.no-outline-border:focus:active {
+    outline: none;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.weallt-white-button {
+    text-shadow: none;
+    box-shadow: none;
+    background-image: none;
+    font-weight: 600;
+    background-color: white;
+    color: #2e2f33;
+    border-color: #2e2f33;
+}
+
+.weallt-black-button {
+    text-shadow: none;
+    box-shadow: none;
+    background-image: none;
+    font-weight: 600;
+    border: none;
+    background-color: #2e2f33;
+    color: #ffffff;
+}

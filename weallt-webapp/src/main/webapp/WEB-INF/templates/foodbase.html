@@ -1,6 +1,8 @@
 <div class="foodbase-container"
     data-ng-controller="FoodBaseController as ctrl">
     <div class="foodbase-list">
+        <button type="button" class="btn btn-default weallt-white-button no-outline-border"
+        data-toggle="modal" data-target="#addFoodModal">Add Food</button>
         <input type="text"
             class="form-control no-outline-border foodbase-list-searchbar"
             placeholder="Search.."></input>
@@ -19,19 +21,123 @@
             <table class="table table-striped">
                 <tbody>
                     <tr>
+                        <td>Energy</td>
+                        <td>{{ctrl.shownFood.energy.value}}
+                            {{ctrl.shownFood.energy.metric}}</td>
+                    </tr>
+                    <tr>
                         <td>Carbohydrate</td>
-                        <td>{{ctrl.shownFood.carbohydrate.weightPortion.value}} {{ctrl.shownFood.carbohydrate.weightPortion.metric}}</td>
+                        <td>{{ctrl.shownFood.carbohydrate.weightPortion.value}}
+                            {{ctrl.shownFood.carbohydrate.weightPortion.metric}}</td>
                     </tr>
                     <tr>
                         <td>Protein</td>
-                        <td>{{ctrl.shownFood.protein.weightPortion.value}} {{ctrl.shownFood.protein.weightPortion.metric}}</td>
+                        <td>{{ctrl.shownFood.protein.weightPortion.value}}
+                            {{ctrl.shownFood.protein.weightPortion.metric}}</td>
                     </tr>
                     <tr>
                         <td>Fat</td>
-                        <td>{{ctrl.shownFood.fat.weightPortion.value}} {{ctrl.shownFood.fat.weightPortion.metric}}</td>
+                        <td>{{ctrl.shownFood.fat.weightPortion.value}}
+                            {{ctrl.shownFood.fat.weightPortion.metric}}</td>
                     </tr>
                 </tbody>
             </table>
+        </div>
+    </div>
+    <div id="addFoodModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="add-food-form-container modal-body">
+                    <form class="form-horizontal add-food-form"
+                        data-ng-submit="ctrl.addFood()">
+                        <div class="form-group">
+                            <label class="control-label col-sm-5"
+                                for="name">Name</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control"
+                                    id="name"
+                                    data-ng-model="ctrl.food.name">
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label"
+                                for="energy">Energy</label>
+                            <div class="col-sm-4">
+                                <input type="number" step="0.1" min="0"
+                                    class="form-control" id="energy"
+                                    data-ng-model="ctrl.food.energy.value">
+                            </div>
+                            <div class="col-sm-3 selectContainer">
+                                <select class="form-control"
+                                    name="metric"
+                                    data-ng-model="ctrl.food.energy.metric">
+                                    <option
+                                        data-ng-repeat="metric in ctrl.energyMetrics">{{metric}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label"
+                                for="carbohydrates">Carbohydrates</label>
+                            <div class="col-sm-4">
+                                <input type="number" step="0.1" min="0"
+                                    class="form-control"
+                                    id="carbohydrates"
+                                    data-ng-model="ctrl.food.carbohydrate.weightPortion.value">
+                            </div>
+                            <div class="col-sm-3 selectContainer">
+                                <select class="form-control"
+                                    name="metric"
+                                    data-ng-model="ctrl.food.carbohydrate.weightPortion.metric">
+                                    <option
+                                        data-ng-repeat="metric in ctrl.weightMetrics">{{metric}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label"
+                                for="protein">Protein</label>
+                            <div class="col-sm-4">
+                                <input type="number" step="0.1" min="0"
+                                    class="form-control" id="protein"
+                                    data-ng-model="ctrl.food.protein.weightPortion.value">
+                            </div>
+                            <div class="col-sm-3 selectContainer">
+                                <select class="form-control"
+                                    name="metric"
+                                    data-ng-model="ctrl.food.protein.weightPortion.metric">
+                                    <option
+                                        data-ng-repeat="metric in ctrl.weightMetrics">{{metric}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label"
+                                for="fat">Fat</label>
+                            <div class="col-sm-4">
+                                <input type="number" step="0.1" min="0"
+                                    class="form-control" id="fat"
+                                    data-ng-model="ctrl.food.fat.weightPortion.value">
+                            </div>
+                            <div class="col-sm-3 selectContainer">
+                                <select class="form-control"
+                                    name="metric"
+                                    data-ng-model="ctrl.food.fat.weightPortion.metric">
+                                    <option
+                                        data-ng-repeat="metric in ctrl.weightMetrics">{{metric}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit"
+                            class="btn btn-default weallt-white-button no-outline-border btn-block">Add</button>
+                        <button type="button" class="btn btn-default weallt-white-button no-outline-border btn-block" data-dismiss="modal">Close</button>
+                    </form>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

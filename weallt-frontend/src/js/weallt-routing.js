@@ -10,9 +10,6 @@
 		})
 		.when('/foodbase', {
 			templateUrl : 'templates/foodbase.html'
-		})
-		.when('/addFood', {
-			templateUrl : 'templates/addFood.html'
 		});
 		$locationProvider.hashPrefix('');
 	} ]);

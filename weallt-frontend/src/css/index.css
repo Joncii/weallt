@@ -32,19 +32,6 @@ html, body {
     margin-bottom: 10px;
 }
 
-.no-outline-border:focus {
-    border-color: #ccc;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    outline: none;
-}
-
-.no-outline-border:focus:active {
-    outline: none;
-    background-color: #fff;
-    border-color: #ccc;
-}
-
 .upper-register-panel {
     flex-grow: 1;
     display: flex;

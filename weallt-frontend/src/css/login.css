@@ -18,28 +18,8 @@
     background-color: #fff7e1;
 }
 
-.login-button{
-    border: none;
-    background-color: #2e2f33;
-    color: #ffffff;
-}
-
 .form-control:focus{
-    border-color: #2e2f33
-}
-
-.login-button{
-    text-shadow: none;
-    box-shadow: none;
-    background-image: none;
-    font-weight: 600;
-}
-
-.register-button{
-    text-shadow: none;
-    box-shadow: none;
-    background-image: none;
-    font-weight: 600;
+    border-color: #2e2f33;
 }
 
 .login-panel .form {

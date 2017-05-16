@@ -45,7 +45,7 @@ gulp.task("buildjs", function () {
 });
 
 gulp.task("buildcss", function(){
-	return gulp.src(["src/css/**/bootstrap.css", "src/css/**/bootstrap-theme.css", "src/css/**/*.css"])
+	return gulp.src(["src/css/**/bootstrap.css", "src/css/**/bootstrap-theme.css", "src/css/**/common.css", "src/css/**/*.css"])
 				.pipe(concatcss("weallt.min.css"))
 				.pipe(gulpIf("*.css", cssnano()))
 				.pipe(gulp.dest("dist"));

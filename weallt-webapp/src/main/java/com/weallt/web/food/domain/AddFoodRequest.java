@@ -10,6 +10,16 @@ public class AddFoodRequest {
 
     private FatPortionView fat;
 
+    private EnergyPortionView energy;
+
+    public EnergyPortionView getEnergy() {
+        return energy;
+    }
+
+    public void setEnergy(EnergyPortionView energy) {
+        this.energy = energy;
+    }
+
     public String getName() {
         return name;
     }

@@ -21,6 +21,9 @@ public class AddFoodRequestTransformer {
 
     @Autowired
     private WeightPortionViewTransformer portionViewTransformer;
+    
+    @Autowired
+    private EnergyPortionViewTransformer energyPortionViewTransformer;
 
     public Food transform(AddFoodRequest request) {
         Food food = new Food();
@@ -28,6 +31,7 @@ public class AddFoodRequestTransformer {
         food.setCarbohydratePortion(carbohydrateViewTransformer.transform(request.getCarbohydrate()));
         food.setProteinPortion(proteinViewTransformer.transform(request.getProtein()));
         food.setFatPortion(fatViewTransformer.transform(request.getFat()));
+        food.setEnergyPortion(energyPortionViewTransformer.transform(request.getEnergy()));
         WeightPortionView weightPortionView = new WeightPortionView();
         weightPortionView.setMetric("g");
         weightPortionView.setValue(100.0);

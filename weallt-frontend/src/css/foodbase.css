@@ -10,6 +10,7 @@
 
 .foodbase-list-searchbar{
     border: 1px solid #2e2f33;
+    margin-top: 10px;
 }
 
 .foodbase-list .list-group {
@@ -85,3 +86,29 @@
 .panel-title {
     font-size: 2.5rem;
 }
+
+.add-food-form {
+    align-self: center;
+}
+
+.add-food-form label {
+    color: white;
+}
+
+.add-food-form-container {
+    width: 100%;
+    background-color: #2e2f33;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 100px;
+}
+
+#addFoodModal .modal-dialog {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
