@@ -92,12 +92,12 @@
 }
 
 .add-food-form label {
-    color: white;
+    color: #2e2f33;
 }
 
 .add-food-form-container {
     width: 100%;
-    background-color: #2e2f33;
+    background-color: #fff7e1;
     padding: 50px;
     border-radius: 10px;
 }

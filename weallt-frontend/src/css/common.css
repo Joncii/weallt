@@ -21,6 +21,11 @@
     border-color: #2e2f33;
 }
 
+.weallt-white-button:hover {
+    background-color: #2e2f33;
+    color: white;
+}
+
 .weallt-black-button {
     text-shadow: none;
     box-shadow: none;

@@ -80,6 +80,7 @@
         
         function closeAddFood() {
         	$('#addFoodModal').modal('hide');
+        	retrieveFoods();
         }
 	}]);
 })();
