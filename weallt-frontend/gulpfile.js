@@ -38,14 +38,14 @@ gulp.task('clean:dist', function(){
 });
 
 gulp.task("buildjs", function () {
-    return gulp.src(["src/js/**/jquery.min.js", "src/js/**/angular.min.js", "src/js/**/angular.min.js", "src/js/**/app.js", "src/js/**/app.js", "src/js/**/*.js"])
+    return gulp.src(["src/js/**/jquery.min.js", "src/js/**/angular.min.js", "src/js/**/angular-sanitize.js", "src/js/**/app.js", "src/js/**/app.js", "src/js/**/*.js"])
         .pipe(concat("weallt.min.js"))
 		.pipe(uglify())
         .pipe(gulp.dest("dist"));
 });
 
 gulp.task("buildcss", function(){
-	return gulp.src(["src/css/**/bootstrap.css", "src/css/**/bootstrap-theme.css", "src/css/**/common.css", "src/css/**/*.css"])
+	return gulp.src(["src/css/**/bootstrap.css", "src/css/**/bootstrap-theme.css", "src/css/**/select.css", "src/css/**/common.css", "src/css/**/*.css"])
 				.pipe(concatcss("weallt.min.css"))
 				.pipe(gulpIf("*.css", cssnano()))
 				.pipe(gulp.dest("dist"));

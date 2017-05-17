@@ -1,0 +1,83 @@
+<div class="exercisebase-container"
+    data-ng-controller="ExerciseBaseController as ctrl">
+    <div class="exercisebase-list">
+        <button type="button"
+            class="btn btn-default weallt-white-button no-outline-border"
+            data-toggle="modal" data-target="#addExerciseModal">Add
+            Exercise</button>
+        <input type="text"
+            class="form-control no-outline-border exercisebase-list-searchbar"
+            placeholder="Search.."></input>
+        <div class="list-group">
+            <button type="button" class="exercisebase-list-item"
+                data-ng-repeat="exercise in ctrl.exerciseList.exercises"
+                data-ng-click="ctrl.retrieveExercise(exercise.id)">{{exercise.name}}</button>
+        </div>
+    </div>
+    <div class="panel foodbase-information-panel"
+        data-ng-hide=!ctrl.shownExercise>
+        <div class="panel-heading foodbase-information-header">
+            <h3 class="panel-title">{{ctrl.shownExercise.name}}</h3>
+        </div>
+        <div class="panel-body">
+            <iframe width="420" height="315"
+                data-ng-src="{{ctrl.trustSrc(ctrl.shownExercise.videoLink)}}">
+            </iframe>
+        </div>
+    </div>
+    <div id="addExerciseModal" class="modal fade" data-keyboard="false"
+        data-backdrop="static" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="add-food-form-container modal-body">
+                    <form class="form-horizontal add-food-form"
+                        data-ng-submit="ctrl.addExercise()">
+                        <div class="form-group">
+                            <label class="control-label col-sm-5"
+                                for="name">Name</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control"
+                                    id="name"
+                                    data-ng-model="ctrl.newExercise.name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-5"
+                                for="name">Video link</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control"
+                                    id="video_link"
+                                    data-ng-model="ctrl.newExercise.videoLink">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-5"
+                                for="name">Targeted muscle
+                                groups</label>
+                            <div class="col-sm-7">
+                                <ui-select multiple
+                                    ng-model="ctrl.newExercise.targetedMuscleGroups"
+                                    theme="bootstrap"
+                                    close-on-select="false"
+                                    title="Choose a muscle group">
+                                <ui-select-match
+                                    placeholder="Select muscle groups..">{{$item}}</ui-select-match>
+                                <ui-select-choices
+                                    repeat="muscleGroup in ctrl.muscleGroups | filter:$select.search">
+                                {{muscleGroup}} </ui-select-choices> </ui-select>
+                            </div>
+                        </div>
+                        <button type="submit"
+                            class="btn btn-default weallt-white-button no-outline-border btn-block">Add</button>
+                        <button type="button"
+                            class="btn btn-default weallt-white-button no-outline-border btn-block"
+                            data-dismiss="modal">Close</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

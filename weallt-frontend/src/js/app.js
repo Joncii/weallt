@@ -1,1 +1,1 @@
-var weallt = angular.module("weallt", ["ngRoute"]);
+var weallt = angular.module("weallt", ["ngRoute", "ui.select", "ngSanitize"]);

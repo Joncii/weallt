@@ -14,15 +14,14 @@ import org.springframework.security.web.authentication.SimpleUrlAuthenticationFa
 
 import com.weallt.configuration.authentication.DefaultUserDetailsService;
 
-
 @Configuration
 @EnableWebSecurity()
 @ComponentScan("com.weallt")
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-    
+
     @Autowired
     private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
-    
+
     @Autowired
     private SavedRequestAwareAuthenticationSuccessHandler savedRequestAwareAuthenticationSuccessHandler;
 
@@ -31,41 +30,43 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new DefaultUserDetailsService();
     }
 
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http.authorizeRequests()
-//            .antMatchers("/login", "/processLogin").anonymous()
-//            .anyRequest().authenticated()
-//            .and()
-//            .formLogin()
-//            .loginPage("/login")
-//            .loginProcessingUrl("/processLogin")
-//            .usernameParameter("email").passwordParameter("password")
-//            .defaultSuccessUrl("/summary", true).and()
-//            .logout().logoutSuccessUrl("/login").and()
-//            .csrf().disable();
-//    }
-    
+    // @Override
+    // protected void configure(HttpSecurity http) throws Exception {
+    // http.authorizeRequests()
+    // .antMatchers("/login", "/processLogin").anonymous()
+    // .anyRequest().authenticated()
+    // .and()
+    // .formLogin()
+    // .loginPage("/login")
+    // .loginProcessingUrl("/processLogin")
+    // .usernameParameter("email").passwordParameter("password")
+    // .defaultSuccessUrl("/summary", true).and()
+    // .logout().logoutSuccessUrl("/login").and()
+    // .csrf().disable();
+    // }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().exceptionHandling().authenticationEntryPoint(restAuthenticationEntryPoint).and()
-                .authorizeRequests().antMatchers("/api/*").authenticated().and().formLogin().loginProcessingUrl("perform_login").usernameParameter("email")
-                .successHandler(savedRequestAwareAuthenticationSuccessHandler)
-                .failureHandler(myFailureHandler()).defaultSuccessUrl("/summary", true).and().logout().deleteCookies("JSESSIONID").logoutSuccessUrl("/login");
+                .authorizeRequests().antMatchers("/api/*").authenticated().and().formLogin()
+                .loginProcessingUrl("perform_login").usernameParameter("email")
+                .successHandler(savedRequestAwareAuthenticationSuccessHandler).failureHandler(myFailureHandler())
+                .defaultSuccessUrl("/summary", true).and().logout().deleteCookies("JSESSIONID")
+                .logoutSuccessUrl("/login").and().headers().frameOptions().disable();
     }
-    
+
     @Override
     public void configure(WebSecurity web) throws Exception {
-//        web.ignoring().antMatchers("/resources/**");
-//        web.ignoring().antMatchers("/login");
-//        web.ignoring().antMatchers("/register");
+        // web.ignoring().antMatchers("/resources/**");
+        // web.ignoring().antMatchers("/login");
+        // web.ignoring().antMatchers("/register");
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService());
     }
-    
+
     @Bean
     public SimpleUrlAuthenticationFailureHandler myFailureHandler() {
         return new SimpleUrlAuthenticationFailureHandler();

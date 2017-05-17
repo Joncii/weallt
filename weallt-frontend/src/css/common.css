@@ -35,3 +35,7 @@
     background-color: #2e2f33;
     color: #ffffff;
 }
+
+.ui-select-multiple.ui-select-bootstrap input.ui-select-search {
+    width: auto !important;
+}
