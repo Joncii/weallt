@@ -1,5 +1,7 @@
 package com.weallt.configuration;
 
+import java.net.URI;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -11,6 +13,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
+import org.springframework.security.web.header.writers.frameoptions.StaticAllowFromStrategy;
+import org.springframework.security.web.header.writers.frameoptions.XFrameOptionsHeaderWriter;
 
 import com.weallt.configuration.authentication.DefaultUserDetailsService;
 
@@ -52,7 +56,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("perform_login").usernameParameter("email")
                 .successHandler(savedRequestAwareAuthenticationSuccessHandler).failureHandler(myFailureHandler())
                 .defaultSuccessUrl("/summary", true).and().logout().deleteCookies("JSESSIONID")
-                .logoutSuccessUrl("/login").and().headers().frameOptions().disable();
+                .logoutSuccessUrl("/login");
+        http.headers().frameOptions().disable()
+                .addHeaderWriter(new XFrameOptionsHeaderWriter(new StaticAllowFromStrategy(URI.create("youtube.com"))));
     }
 
     @Override
